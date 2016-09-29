@@ -1,5 +1,8 @@
 <% @projects.each do |project| %>
+  <!--inspect is printing out the all variable with the xxxx.inspect variable-->
+  <!--<p><strong><%#= project.inspect %></strong></p>-->
 
-  <p><strong><%= project.title %></strong></p>
+  <p><strong><%= project.title %></strong> - <em><%= project.description %></em>
+     <%= " | #{project.percent_complete}" if project.percent_complete != nil %></p>
 
 <% end %>
