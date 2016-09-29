@@ -1,3 +1,8 @@
+/*[Jerry] add for custom loacl font*/
+@font-face {
+  font-family: "Hunger Games";
+  src: url('/assets/Hunger_Games');
+}
 
 body {
   margin: 42px;
@@ -6,7 +11,8 @@ body {
 /*use the fonts by default css safe font in all browser*/
 h1 {
   /*google = css build in fonts*/
-  font-family: "Arial Black", Gadget, sans-serif;
+  font-family: "Hunger Games", "Arial Black", sans-serif;
+  font-size: 3.5em;
 }
 
 p {
