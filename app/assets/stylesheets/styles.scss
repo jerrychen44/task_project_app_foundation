@@ -2,3 +2,13 @@
 body {
   margin: 42px;
 }
+
+/*use the fonts by default css safe font in all browser*/
+h1 {
+  /*google = css build in fonts*/
+  font-family: "Arial Black", Gadget, sans-serif;
+}
+
+p {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
