@@ -20,11 +20,11 @@
     <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
-
-  <div class="field">
-    <%= f.label :percent_complete %>
-    <%= f.text_field :percent_complete %>
-  </div>
+  <!--we close this field when create a new project, because we have default value 0.0-->
+  <!--<div class="field">-->
+    <!--<%#= f.label :percent_complete %>-->
+    <!--<%#= f.text_field :percent_complete %>-->
+  <!--</div>-->
 
   <div class="actions">
     <%= f.submit %>
