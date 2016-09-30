@@ -6,7 +6,13 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
+
+    #make example to call the method on its model method
+    #@projects = Project.almost_completed
+    #@projects = Project.still_needs_some_work
+
   end
+
 
   # GET /projects/1
   # GET /projects/1.json
