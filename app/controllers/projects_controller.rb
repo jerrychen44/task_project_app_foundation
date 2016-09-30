@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  #set_project is a method will be called before those below action
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
   # GET /projects
@@ -10,6 +11,10 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    #[Jerry] because the before_action, the set_project method already help you to
+    #get the object of the projects/id.
+    #show even there is no code insdie the show method, but in the show.html.erb, they still
+    #can use the @project. That's why the show page is work.
   end
 
   # GET /projects/new
@@ -24,6 +29,8 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
+    # the project_params is strong parameter in Rail4,
+    # at below as a private method.
     @project = Project.new(project_params)
 
     respond_to do |format|
@@ -56,7 +63,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: 'Project was successfully destroyed.' }
+      format.html { redirect_to projects_url, notice: 'Project was deleted.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +76,12 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
+      # [Jerry] it only alow the title,description, and percent_complete to be a input
+      #if you take out the description like
+      # params.require(:project).permit(:title, :percent_complete)
+      # then only title, percent_complete will pass inside this controller
+
+      #!! Remember add the new column, if you add new column in db.
       params.require(:project).permit(:title, :description, :percent_complete)
     end
 end
