@@ -8,6 +8,13 @@ class Project < ApplicationRecord
   #integrating database relationships
 ############################################
 
+
+  ###################
+  # integrating database relationships
+  ###################################
+  #!!!! you use tasks wording here, means you can use Project.last.tasks to query out all tasks belong this project
+  has_many :tasks
+
   #############
   # add defaults
   ##############
