@@ -30,6 +30,17 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+#[Jerry] add for upload the file +++
+gem 'carrierwave'
+# auto size, filter
+gem 'mini_magick', '~> 3.5.0'
+#API between AWS and web app
+gem 'fog'
+#security
+gem 'figaro'
+# [Jerry] ----
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
