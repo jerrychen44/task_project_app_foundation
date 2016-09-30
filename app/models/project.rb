@@ -1,9 +1,9 @@
 class Project < ApplicationRecord
   #[Jerry] what should be put in in model
   #all logical alog.
-  #add Custom scopes herer
+  #add Custom scopes here
   #add defaults here.
-  #integrate validataion herer.
+  #integrate validataion here.
   #integrate callbacks
   #integrating database relationships
 ############################################
@@ -17,6 +17,16 @@ class Project < ApplicationRecord
   # (Or you can set when you create the db)
   # Don't use after_create, time is not right, will weap out the value you have.
   after_initialize :set_defaults
+
+
+
+  #######################
+  # integrate validataion here
+  ######################
+  validates_presence_of :title, :description, :percent_complete
+
+
+
 
   ################
   #Custom scopes #
