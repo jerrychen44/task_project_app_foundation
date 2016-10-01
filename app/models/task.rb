@@ -11,6 +11,11 @@ class Task < ApplicationRecord
   scope :completed, -> { where(completed: true)}
 
 
+  #[Jerry] add for uploader the attchement
+  # task_file you can find in scheme.rb, and tell what type of uplodaer you want => TaskFileUploader
+  #TaskFileUploader is the class you define in /models/uploaders/task_file_uplader.rb
+  mount_uploader :task_file, TaskFileUploader
+
   def mark_completed?
     self.completed == true
   end
