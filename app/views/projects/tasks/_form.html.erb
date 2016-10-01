@@ -1,12 +1,13 @@
 <!-- add for nested routes, chagne  form_for(@task) to  form_for[@project , @task] -->
 <!-- change to an array -->
-<%= form_for[@project , @task] do |f| %>
+<%= form_for [@project, @task] do |f| %>
   <!--error handle first-->
   <% if @task.errors.any? %>
     <%= pluralize(@task.errors.count,"error") %> prohibited this project from being saved:
     <%= @task.errors.full_messages.each do |message| %>
-      <%= message%>
+      <%= message %>
     <% end %>
+  <% end %>
 
 
 
@@ -22,7 +23,7 @@
     <%= f.label "Attachement" %>
     <%= f.file_field :task_file %>
 
-    <%= f.submit =>
+    <%= f.submit %>
+
 
   <% end %>
-<% end %>

@@ -22,11 +22,12 @@ class Projects::TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to @task, notice: "Task was created successfully!"}
+        format.html { redirect_to project_url(@task.project_id), notice: "Task was created successfully!"}
         format.json {render :show, status: :created, location: @task}
       else
-        format.html { render :new}
-        format.json { render :json: @task.errors, status: :unprocessable_entity}
+        format.html { render :new }
+        format.json { render json: @task.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -35,11 +36,12 @@ class Projects::TasksController < ApplicationController
     respond_to do |format|
       #because we run the set_task , so we can use the @task in next line.
       if @task.update(task_params)
-        format.html { redirect_to @task, notice: "Task was updated successfully!"}
+        format.html { redirect_to project_url(@task.project_id), notice: "Task was updated successfully!"}
         format.json {render :show, status: :created, location: @task}
       else
-        format.html { render :edit}
-        format.json { render :json: @task.errors, status: :unprocessable_entity}
+        format.html { render :edit }
+        format.json { render json: @task.errors, status: :unprocessable_entity}
+      end
     end
   end
 
@@ -56,7 +58,7 @@ class Projects::TasksController < ApplicationController
     def set_task
       @task = Task.find(params[:id])
     end
-    
+
     #add for nested routes
     def set_project
       #add for nested routes
@@ -76,7 +78,7 @@ class Projects::TasksController < ApplicationController
         #t.boolean  "completed"
         #t.text     "task_file"
         #t.index ["project_id"], name: "index_tasks_on_project_id"
-      end
+      #end
       params.require(:task).permit(:title,:description, :project_id, :completed, :task_file)
     end
 end
