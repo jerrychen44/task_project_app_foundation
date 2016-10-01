@@ -21,6 +21,11 @@ class ProjectsController < ApplicationController
     #get the object of the projects/id.
     #show even there is no code insdie the show method, but in the show.html.erb, they still
     #can use the @project. That's why the show page is work.
+
+
+    #add for tring to show all tasks belong the prjoect
+    @tasks = @project.tasks
+     
   end
 
   # GET /projects/new

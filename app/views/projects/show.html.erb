@@ -21,6 +21,22 @@
 
 
 <h2>Tasks for this project</h2>
+
+<!--we want to show all the tasks which belongs to this project -->
+<!-- you can use below method to achive, but don't. logical things need to put in model layer. not in view-->
+<!--<%#= @project.tasks.each do |task| %>-->
+<!-- so go to your projects_controllar.rb , find show method -->
+<!-- the show method help us to get all tasks. (@tasks = @project.tasks )-->
+<% @tasks.each do |task| %>
+<!--rake routes =>      project_task GET    /projects/:project_id/tasks/:id(.:format)      projects/tasks#show-->
+<!-- also you need pass in the :project_id and :id(which means task id)-->
+  <p><%= link_to task.title, project_task_path(@project.id,task.id) %></p>
+<% end %>
+
+
+
+
+
 <!--linke to a page and pass in the parameter-->
 <!--new_project_task GET    /projects/:project_id/tasks/new(.:format)      projects/tasks#new -->
 <%= link_to "Add a new Task for this project" ,new_project_task_path(project_id: @project.id) %>
