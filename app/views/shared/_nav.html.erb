@@ -9,6 +9,8 @@
 <!--    destroy_user_session DELETE /users/sign_out(.:format)                      devise/sessions#destroy-->
 <!--rails default method use get, if you use other method ,need to point out as below-->
   <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+<!--  edit_user_registration GET    /users/edit(.:format)                          devise/registrations#edit-->
+ <%= link_to "Edit Account", edit_user_registration_path %>
 <% else %>
 <!--   new_user_registration GET    /users/sign_up(.:format)                       devise/registrations#new-->
   <%= link_to "Register", new_user_registration_path %>
