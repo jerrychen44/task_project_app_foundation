@@ -3,3 +3,16 @@
 <%= link_to "Contact", contact_path %>
 <%= link_to "Blog", blog_path %>
 <%= link_to "Projects", projects_path %>
+
+<!--current_user is the gift from deivse-->
+<% if current_user %>
+<!--    destroy_user_session DELETE /users/sign_out(.:format)                      devise/sessions#destroy-->
+<!--rails default method use get, if you use other method ,need to point out as below-->
+  <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+<% else %>
+<!--   new_user_registration GET    /users/sign_up(.:format)                       devise/registrations#new-->
+  <%= link_to "Register", new_user_registration_path %>
+
+  <!--        new_user_session GET    /users/sign_in(.:format)                       devise/sessions#new-->
+  <%= link_to "Sign In", new_user_session_path %>
+<% end %>
