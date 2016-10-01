@@ -1,5 +1,9 @@
-class TasksController < ApplicationController
+#add for nested routes, change TasksController < ApplicationController to Projects::TasksController < ApplicationController
+class Projects::TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit,:update,:destroy]
+
+  #add for nested routes
+  before_action :set_project, only: [:show, :new, :edit, :create, :update,:destroy]
   def show
   end
 
@@ -12,6 +16,9 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(task_params)
+    #add for nested routes
+    #we can use @prjoect becasue the before_action set_project
+    @task.project_id = @project.id
 
     respond_to do |format|
       if @task.save
@@ -48,6 +55,13 @@ class TasksController < ApplicationController
   private
     def set_task
       @task = Task.find(params[:id])
+    end
+    
+    #add for nested routes
+    def set_project
+      #add for nested routes
+      #url like, .com/projects/5/tasks/2, project_id = 5
+      @project = Project.find(params[:project_id])
     end
 
     def task_params

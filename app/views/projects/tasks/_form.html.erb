@@ -1,4 +1,6 @@
-<%= form_for(@task) do |f| %>
+<!-- add for nested routes, chagne  form_for(@task) to  form_for[@project , @task] -->
+<!-- change to an array -->
+<%= form_for[@project , @task] do |f| %>
   <!--error handle first-->
   <% if @task.errors.any? %>
     <%= pluralize(@task.errors.count,"error") %> prohibited this project from being saved:
