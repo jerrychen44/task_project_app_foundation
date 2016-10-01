@@ -17,3 +17,10 @@
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+
+
+
+<h2>Tasks for this project</h2>
+<!--linke to a page and pass in the parameter-->
+<!--new_project_task GET    /projects/:project_id/tasks/new(.:format)      projects/tasks#new -->
+<%= link_to "Add a new Task for this project" ,new_project_task_path(project_id: @project.id) %>
